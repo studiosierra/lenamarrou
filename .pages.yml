@@ -33,3 +33,38 @@ content:
       - name: body
         label: Texte de l'article
         type: rich-text
+media:
+  input: photos-blog
+  output: /photos-blog
+content:
+  - name: blog
+    label: Articles du blog
+    type: collection
+    path: articles
+    view:
+      fields: [titre, date]
+      primary: titre
+    fields:
+      - name: titre
+        label: Titre de l'article
+        type: string
+        required: true
+      - name: date
+        label: Date
+        type: date
+        required: true
+      - name: resume
+        label: Résumé (deux lignes, affiché sur la page du blog)
+        type: text
+      - name: image
+        label: Photo de l'article
+        type: image
+      - name: video
+        label: Lien d'une vidéo YouTube ou Instagram (facultatif)
+        type: string
+      - name: brouillon
+        label: Brouillon (cocher pour ne pas encore publier)
+        type: boolean
+      - name: body
+        label: Texte de l'article
+        type: rich-text
