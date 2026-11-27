@@ -188,6 +188,14 @@ def _youtube(u):
     return f"https://www.youtube-nocookie.com/embed/{m.group(1)}" if m else ""
 
 
+def _instagram(u):
+    m = re.search(r"instagram\.com/(?:[\w.]+/)?(p|reel|reels|tv)/([\w-]{5,})", u or "")
+    if not m:
+        return ""
+    kind = "reel" if m.group(1) in ("reel", "reels") else ("tv" if m.group(1) == "tv" else "p")
+    return f"https://www.instagram.com/{kind}/{m.group(2)}/embed/"
+
+
 def load_posts():
     posts, files = [], []
     for folder in (SRC / "content" / "blog", SRC / "articles"):
@@ -748,9 +756,14 @@ page("blog.html", "Mon blog · Léna Marrou psychomotricité",
 for p in POSTS:
     video_html = ""
     if p["video"]:
-        yt = _youtube(p["video"])
-        video_html = (f'<div class="ph" style="height:auto;aspect-ratio:16/9"><iframe src="{yt}" title="Vidéo" style="width:100%;height:100%;border:0" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>'
-                      if yt else f'<p><a class="btn btn-soft" href="{_html.escape(p["video"])}">Voir la vidéo <span class="arr">→</span></a></p>')
+        yt, ig = _youtube(p["video"]), _instagram(p["video"])
+        if yt:
+            video_html = f'<div class="ph" style="height:auto;aspect-ratio:16/9"><iframe src="{yt}" title="Vidéo" style="width:100%;height:100%;border:0" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>'
+        elif ig:
+            video_html = (f'<div class="insta"><iframe src="{ig}" title="Vidéo Instagram" allowtransparency="true" allowfullscreen loading="lazy"></iframe></div>'
+                          f'<p><a class="btn btn-soft" href="{_html.escape(p["video"])}" target="_blank" rel="noopener">Voir sur Instagram <span class="arr">→</span></a></p>')
+        else:
+            video_html = f'<p><a class="btn btn-soft" href="{_html.escape(p["video"])}" target="_blank" rel="noopener">Voir la vidéo <span class="arr">→</span></a></p>'
     when = _date_fr(p["date"])
     photo = f'<div class="ph" style="height:auto;aspect-ratio:16/10">{post_photo(p)}</div>' if p["image"] else ""
     page(p["href"], f'{p["titre"]} · Léna Marrou',
