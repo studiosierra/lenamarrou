@@ -374,3 +374,9 @@ input[type=date]{min-height:54px;-webkit-appearance:none;appearance:none;backgro
 .hero-equi .veil{background:linear-gradient(180deg,rgba(29,34,48,.12) 0%,rgba(29,34,48,.45) 40%,rgba(29,34,48,.82) 100%)}
 .hero-equi .lead{text-shadow:0 1px 14px rgba(0,0,0,.45)}
 @media (max-width:700px){.hero-equi .lead{font-size:16px;line-height:1.5}.grow-long .grow-txt .h-l{font-size:28px}}
+.foot-end{width:100%;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px 24px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14)}
+.foot-end small{width:auto}
+.sign{font-size:14px;color:#A9B3C2;letter-spacing:.02em}
+.sign{display:inline-flex;align-items:center;gap:12px;text-decoration:none;opacity:.8;transition:opacity .3s}
+.sign:hover{opacity:1}
+.sign img{height:36px;width:auto;display:block}

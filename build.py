@@ -97,7 +97,7 @@ def footer(dock_right=None):
 <div class="foot-links"><a href="{INSTA}">Instagram</a><a href="contact.html">Formulaire</a><a href="mentions-legales.html">Mentions légales</a></div>
 </div>
 <div class="btns"><a class="btn btn-light" href="{DOCTOLIB}">Prendre rendez-vous <span class="arr">→</span></a></div>
-<small>© 2026 Léna Marrou, psychomotricienne · RPPS 10008419011</small>
+<div class="foot-end"><small>© 2026 Léna Marrou, psychomotricienne · RPPS 10008419011</small><a class="sign" href="https://studiosierra-agence.fr" target="_blank" rel="noopener">Site réalisé par <img src="assets/img/studio-sierra.png" alt="Studio Sierra, image &amp; communication" width="101" height="36" loading="lazy"></a></div>
 </div></footer>
 <nav class="dock" aria-label="Contact rapide"><a href="{TEL}">Appeler</a><a href="{right[0]}">{right[1]}</a></nav>
 <script src="assets/site.js"></script>'''
@@ -777,6 +777,8 @@ page("mentions-legales.html", "Mentions légales · Léna Marrou psychomotricit�
 <p>Léna Marrou, psychomotricienne en exercice libéral.<br>219 Avenue de Verdun, bâtiment I, 13400 Aubagne.<br>RPPS&nbsp;: 10008419011.<br>SIRET&nbsp;: [à compléter en janvier 2027, avec le nouveau statut].<br>Contact&nbsp;: {MAIL} · {TEL_TXT}</p>
 <h2>Hébergement</h2>
 <p>Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, États-Unis (service Cloudflare Pages).</p>
+<h2>Conception du site</h2>
+<p>Studio Sierra, Marseille · <a href="https://studiosierra-agence.fr">studiosierra-agence.fr</a></p>
 <h2>Photos et vidéos</h2>
 <p>Les photos et vidéos appartiennent à Léna Marrou. Les personnes qui y apparaissent ont donné leur accord.</p>
 <h2>Données personnelles</h2>
